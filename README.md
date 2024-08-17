@@ -7,13 +7,13 @@ and perform complex sequential or parallel tasks in an application.
 This tool is especially useful in the following situations:
 
 1. Request Processing Chain: **Pipeline** can be used to process incoming HTTP requests through a series of steps
-processing such as authentication, validation, authorization, etc.
+   processing such as authentication, validation, authorization, etc.
 2. Multiple Data Transformation: It helps to apply multiple transformations to the data in the chain, avoiding
-redundant code and making the process manageable and understandable.
+   redundant code and making the process manageable and understandable.
 3. Modularity and extensibility: **Pipeline** makes the code more modular and extensible, since each processing step can
-be easily added, modified or deleted without changing the basic logic of the application.
+   be easily added, modified or deleted without changing the basic logic of the application.
 4. Ease of debugging and testing: Using **Pipeline** simplifies debugging and testing because each stage
-The processing can be tested separately, and the passage of data through the chain is also easily tracked.
+   The processing can be tested separately, and the passage of data through the chain is also easily tracked.
 
 The overall benefit of using **Pipeline** is to simplify the organization and execution of complex
 data processing, increase code modularity and extensibility, and reduce code connectivity. But it can
@@ -92,92 +92,92 @@ difference is that it returns the result after passing all pipes.
 ### Examples
 
 1. **Simple Example**
-```Go
-func main() {
-(pipeline.NewPipeline()).
-Send(
-config.SendDataType{
-"1": 1,
-},
-).
-Through(
-[]interface{}{
-&TestStructure1{},
-func(data config.SendDataType) config.SendDataType {
-data["3"] = "3"
-return data
-},
-&TestStructure2{},
-},
-).
-Via("Test").
-Then()
-}
-
-type TestStructure1 struct {
-}
-
-func (test1 *TestStructure1) Test(data config.SendDataType) config.SendDataType {
-data["2"] = "2"
-return data
-}
-
-type TestStructure2 struct {
-}
-
-func (test2 *TestStructure2) Test(data config.SendDataType) config.SendDataType {
-data["4"] = "4"
-return data
-}
-
-```
+   ```Go
+   func main() {
+       (pipeline.NewPipeline()).
+           Send(
+               config.SendDataType{
+                   "1": 1,
+               },
+           ).
+           Through(
+               []interface{}{
+                   &TestStructure1{},
+                   func(data config.SendDataType) config.SendDataType {
+                       data["3"] = "3"
+                       return data
+                   },
+                   &TestStructure2{},
+               },
+           ).
+           Via("Test").
+           Then()
+   }
+   
+   type TestStructure1 struct {
+   }
+   
+   func (test1 *TestStructure1) Test(data config.SendDataType) config.SendDataType {
+       data["2"] = "2"
+       return data
+   }
+   
+   type TestStructure2 struct {
+   }
+   
+   func (test2 *TestStructure2) Test(data config.SendDataType) config.SendDataType {
+       data["4"] = "4"
+       return data
+   }
+   
+   ```
 2. **An example using a variety of optional methods**
-```Go
-func main() {
-data := (pipeline.NewPipeline()).
-Send(
-config.SendDataType{
-"1": 1,
-},
-).
-Through(
-[]interface{}{
-&TestStructure1{},
-func(data config.SendDataType) config.SendDataType {
-data["3"] = "3"
-return data
-},
-&TestStructure2{},
-},
-).
-HandleException(
-func(ctx context.Context) {
-fmt.Println("Exception Handle")
-fmt.Println(ctx.Value("err"))
-},
-).
-HandleCarry(
-func(ctx context.Context) {
-fmt.Println("Carry Handle")
-fmt.Println(ctx.Value("data"))
-},
-).
-ThenReturn()
-}
-
-type TestStructure1 struct {
-}
-
-func (test1 *TestStructure1) Handle(data config.SendDataType) config.SendDataType {
-data["2"] = "2"
-return data
-}
-
-type TestStructure2 struct {
-}
-
-func (test2 *TestStructure2) Handle(data config.SendDataType) config.SendDataType {
-data["4"] = "4"
-return data
-}
-```
+   ```Go
+   func main() {
+       data := (pipeline.NewPipeline()).
+           Send(
+               config.SendDataType{
+                   "1": 1,
+               },
+           ).
+           Through(
+               []interface{}{
+                   &TestStructure1{},
+                   func(data config.SendDataType) config.SendDataType {
+                       data["3"] = "3"
+                       return data
+                   },
+                   &TestStructure2{},
+               },
+           ).
+           HandleException(
+               func(ctx context.Context) {
+                   fmt.Println("Exception Handle")
+                   fmt.Println(ctx.Value("err"))
+               },
+           ).
+           HandleCarry(
+               func(ctx context.Context) {
+                   fmt.Println("Carry Handle")
+                   fmt.Println(ctx.Value("data"))
+               },
+           ).
+           ThenReturn()
+   }
+   
+   type TestStructure1 struct {
+   }
+   
+   func (test1 *TestStructure1) Handle(data config.SendDataType) config.SendDataType {
+       data["2"] = "2"
+       return data
+   }
+   
+   type TestStructure2 struct {
+   }
+   
+   func (test2 *TestStructure2) Handle(data config.SendDataType) config.SendDataType {
+       data["4"] = "4"
+       return data
+   }
+   ```
