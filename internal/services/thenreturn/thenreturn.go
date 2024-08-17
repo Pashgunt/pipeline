@@ -1,9 +1,9 @@
 package thenreturn
 
 import (
-	"pipelinePackage/internal/app/fields"
-	"pipelinePackage/internal/config"
-	"pipelinePackage/internal/services/then"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/config"
+	"github.com/Pashgunt/pipeline/internal/services/then"
 )
 
 func ThenReturn(fields *fields.PipelineFields) config.SendDataType {

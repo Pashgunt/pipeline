@@ -2,7 +2,7 @@ package fields
 
 import (
 	"context"
-	"pipelinePackage/internal/config"
+	"github.com/Pashgunt/pipeline/internal/config"
 )
 
 type PipelineFields struct {

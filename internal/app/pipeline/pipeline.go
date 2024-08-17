@@ -2,15 +2,15 @@ package pipeline
 
 import (
 	"context"
-	"pipelinePackage/internal/app/fields"
-	"pipelinePackage/internal/config"
-	"pipelinePackage/internal/services/handlecarry"
-	"pipelinePackage/internal/services/handleexception"
-	"pipelinePackage/internal/services/send"
-	"pipelinePackage/internal/services/then"
-	"pipelinePackage/internal/services/thenreturn"
-	"pipelinePackage/internal/services/through"
-	"pipelinePackage/internal/services/via"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/config"
+	"github.com/Pashgunt/pipeline/internal/services/handlecarry"
+	"github.com/Pashgunt/pipeline/internal/services/handleexception"
+	"github.com/Pashgunt/pipeline/internal/services/send"
+	"github.com/Pashgunt/pipeline/internal/services/then"
+	"github.com/Pashgunt/pipeline/internal/services/thenreturn"
+	"github.com/Pashgunt/pipeline/internal/services/through"
+	"github.com/Pashgunt/pipeline/internal/services/via"
 )
 
 type Interface interface {

@@ -2,7 +2,7 @@ package via
 
 import (
 	"fmt"
-	"pipelinePackage/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
 	"strings"
 )
 

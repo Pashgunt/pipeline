@@ -2,7 +2,7 @@ package reflectpipeline
 
 import (
 	"fmt"
-	"pipelinePackage/internal/config"
+	"github.com/Pashgunt/pipeline/internal/config"
 	"reflect"
 )
 

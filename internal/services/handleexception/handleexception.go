@@ -2,7 +2,7 @@ package handleexception
 
 import (
 	"context"
-	"pipelinePackage/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
 )
 
 func HandleException(callback func(ctx context.Context), fields *fields.PipelineFields) {

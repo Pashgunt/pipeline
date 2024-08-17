@@ -1,8 +1,8 @@
 package send
 
 import (
-	"pipelinePackage/internal/app/fields"
-	"pipelinePackage/internal/config"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/config"
 )
 
 func Send(data config.SendDataType, fields *fields.PipelineFields) {

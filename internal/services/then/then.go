@@ -2,9 +2,9 @@ package then
 
 import (
 	"context"
-	"pipelinePackage/internal/app/fields"
-	"pipelinePackage/internal/config"
-	reflectpipeline "pipelinePackage/internal/lib/reflect"
+	"github.com/Pashgunt/pipeline/internal/app/fields"
+	"github.com/Pashgunt/pipeline/internal/config"
+	reflectpipeline "github.com/Pashgunt/pipeline/internal/lib/reflect"
 	"reflect"
 )
 

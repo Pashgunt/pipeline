@@ -1,8 +1,8 @@
 package main
 
 import (
-	"pipelinePackage/internal/app/pipeline"
-	"pipelinePackage/internal/config"
+	"github.com/Pashgunt/pipeline/internal/app/pipeline"
+	"github.com/Pashgunt/pipeline/internal/config"
 )
 
 func main() {
